@@ -1,0 +1,22 @@
+name: build
+
+on:
+  push:
+    branches: [main]
+  # TODO: is it necessary? Think later.
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  build:
+    secrets: inherit
+    uses: oleksandrkudin/poc-ndp-workflows/.github/workflows/build.yaml@main
+    with:
+      # TODO: can be changed with github.repository? => Not for now github.repository == owner/repository + no function to get only repository name without owner
+      # TODO: why do we have here unit and environment => to set unit manually, beginning environment can be any, or name can be different
+      # TODO: prepend with ndf_ prefix?
+      unit: "poc-ndp-test1"
+      environment: dev

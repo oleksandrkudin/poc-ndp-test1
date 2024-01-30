@@ -1,0 +1,27 @@
+name: test
+
+on:
+  workflow_call:
+    inputs:
+      environment:
+        type: string
+        required: true
+
+# permissions:
+#   contents: write
+#   pull-requests: write
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
+    steps:
+      - run: |
+          echo "Run tests and provide result"
+
+  # update:
+  #   secrets: inherit
+  #   uses: oleksandrkudin/poc-ndp-workflows/.github/workflows/deploy.yaml@main
+  #   with:
+  #     unit: "poc-ndp-test1"
+  #     environment: ${{ inputs.environment }}
