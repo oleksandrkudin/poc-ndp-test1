@@ -14,7 +14,8 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    environment: ${{ inputs.environment }}
+    # TODO: Do i need here environment? Get settings from environment?
+    #environment: ${{ inputs.environment }}
     steps:
       - run: |
           echo "Run tests and provide result"
